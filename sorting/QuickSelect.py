@@ -1,3 +1,6 @@
+from QuickSort import partition
+
+
 def quick_select(arr, k):
     return split(0, len(arr)-1, [num for num in arr], k)
 
@@ -13,26 +16,6 @@ def split(l, r, arr, k):
     else:
         split(l, pivot-1, arr, k)
     return arr
-
-
-def partition(i, j, arr):
-    pivot = arr[i]
-    oi = i
-    i += 1
-    while True:
-        while i < j and arr[i] < pivot:
-            i += 1
-        while i <= j and arr[j] >= pivot:
-            j -= 1
-        if i >= j:
-            break
-        oj = arr[j]
-        arr[j] = arr[i]
-        arr[i] = oj
-    oj = arr[j]
-    arr[j] = arr[oi]
-    arr[oi] = oj
-    return j
 
 
 # want Kth smallest element
