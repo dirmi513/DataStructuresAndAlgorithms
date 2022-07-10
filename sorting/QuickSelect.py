@@ -38,7 +38,6 @@ class QuickSelect:
     ) -> int:
         pivot = nums[left]
         original_left = left
-        original_right = None
         left += 1
         
         while True:
@@ -50,14 +49,10 @@ class QuickSelect:
             
             if left >= right:
                 break
-                
-            nums_right = nums[right]
-            nums[right] = nums[left]
-            nums[left] = nums_right
+            
+            nums[right], nums[left] = nums[left], nums[right]
         
-        nums_right = nums[right]
-        nums[right] = nums[original_left]
-        nums[original_left] = nums_right
+        nums[right], nums[original_left] = nums[original_left], nums[right]
         
         return right
 
