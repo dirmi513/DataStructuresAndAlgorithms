@@ -31,7 +31,11 @@ class QuickSelect:
         return nums
     
     @staticmethod
-    def partition(left: int, right: int, nums: List[int]) -> int:
+    def partition(
+        left: int, 
+        right: int, 
+        nums: List[int]
+    ) -> int:
         pivot = nums[left]
         original_left = left
         original_right = None
@@ -41,7 +45,7 @@ class QuickSelect:
             while left < right and nums[left] < pivot:
                 left += 1
             
-            while left <= right and nums[left] >= pivot:
+            while left <= right and nums[right] >= pivot:
                 right -= 1
             
             if left >= right:
